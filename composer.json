@@ -12,7 +12,7 @@
   },
   "autoload": {
     "psr-4": {
-      "OLX\\": ["src/", "tests/"]
+      "OLX\\FluentHttpClient\\": ["src/", "tests/"]
     }
   }
 }
