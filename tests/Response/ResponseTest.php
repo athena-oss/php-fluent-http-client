@@ -4,6 +4,7 @@ namespace OLX\FluentHttpClient\Response;
 
 use OLX\FluentHttpClient\Response\Decorator\ResponseWithAssertions;
 use OLX\FluentHttpClient\Holder\ClosureHolder;
+use GuzzleHttp\Psr7\Response as GuzzleResponse;
 
 class ResponseTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,7 +15,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $response = $this->getMockWithoutInvokingTheOriginalConstructor(\GuzzleHttp\Message\Response::class);
+        $response = $this->getMockWithoutInvokingTheOriginalConstructor(GuzzleResponse::class);
         $this->closureHolder = $this->getMockWithoutInvokingTheOriginalConstructor(ClosureHolder::class);
         $this->closureHolder->method('get')->willReturn($response);
         $this->response = new Response($this->closureHolder);

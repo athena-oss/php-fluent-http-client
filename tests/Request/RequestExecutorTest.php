@@ -4,6 +4,7 @@ namespace OLX\FluentHttpClient;
 
 use OLX\FluentHttpClient\Exception\UnsupportedOperationException;
 use GuzzleHttp\Client;
+use OLX\FluentHttpClient\Request\RequestExecutor;
 
 class RequestExecutorTest extends \PHPUnit_Framework_TestCase
 {
@@ -52,19 +53,25 @@ class RequestExecutorTest extends \PHPUnit_Framework_TestCase
 
     private function makeRequestExecutorFor($method)
     {
-        $httpClient = $this->getMock(Client::class);
+        // set the methods manually, since with >Guzzle 6.0 the client uses __call method which complicates a bit the mocking
+        $httpClient = $this->getMockBuilder(Client::class)
+            ->setMethods(['get','post','put','delete'])
+            ->getMock();
+
         $httpClient->method('get')->willReturn('get');
         $httpClient->method('post')->willReturn('post');
         $httpClient->method('put')->willReturn('put');
         $httpClient->method('delete')->willReturn('delete');
 
-        $requestExecutor = $this->getMockBuilder('OLX\FluentHttpClient\Request\RequestExecutor')
+        $requestExecutor = $this->getMockBuilder(RequestExecutor::class)
             ->setConstructorArgs([$method, 'http://www.olx.com', []])
-            ->setMethods(['getClient'])->getMock();
+            ->setMethods(['getClient'])
+            ->getMock();
         
         $requestExecutor->expects($this->any())
             ->method('getClient')
             ->willReturn($httpClient);
+
         return $requestExecutor;
     }
 }

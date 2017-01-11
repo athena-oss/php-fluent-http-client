@@ -27,7 +27,7 @@ class RequestExecutor
     }
 
     /**
-     * @return \GuzzleHttp\Ring\Future\FutureInterface|null
+     * @return \Psr\Http\Message\ResponseInterface|null
      */
     public function __invoke()
     {
@@ -35,7 +35,7 @@ class RequestExecutor
     }
 
     /**
-     * @return \GuzzleHttp\Ring\Future\FutureInterface|null
+     * @return \Psr\Http\Message\ResponseInterface|null
      * @throws UnsupportedOperationException
      */
     public function execute()

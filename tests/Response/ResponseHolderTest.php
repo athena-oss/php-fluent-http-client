@@ -1,7 +1,7 @@
 <?php
 namespace OLX\FluentHttpClient\Response;
 
-use GuzzleHttp\Message\Response as GuzzleResponse;
+use GuzzleHttp\Psr7\Response as GuzzleResponse;
 
 class ResponseHolderTest extends \PHPUnit_Framework_TestCase
 {

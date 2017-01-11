@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "type": "library",
   "require": {
-    "guzzlehttp/guzzle": "5.3.0",
+    "guzzlehttp/guzzle": "^6.0",
     "peekmo/jsonpath": "1.1.0"
   },
   "require-dev" : {
