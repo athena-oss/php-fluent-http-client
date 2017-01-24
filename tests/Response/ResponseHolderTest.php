@@ -7,7 +7,7 @@ class ResponseHolderTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetExistingHeader()
     {
-        $response = $this->getMockWithoutInvokingTheOriginalConstructor(GuzzleResponse::class);
+        $response = $this->getMockBuilder(GuzzleResponse::class)->disableOriginalConstructor()->getMock();
         $response->method('getStatusCode')->willReturn(200);
         $response->method('getHeader')->willReturnCallback(function ($key) {
             $arr = ['foo' => 'bar', 'baz' => 'bazinga'];
@@ -51,7 +51,7 @@ class ResponseHolderTest extends \PHPUnit_Framework_TestCase
 
     public function testGetStatusCode()
     {
-        $response = $this->getMockWithoutInvokingTheOriginalConstructor(GuzzleResponse::class);
+        $response = $this->getMockBuilder(GuzzleResponse::class)->disableOriginalConstructor()->getMock();
         $response->method('getStatusCode')->willReturn(123);
 
         $responseHolder = new ResponseHolder($response);

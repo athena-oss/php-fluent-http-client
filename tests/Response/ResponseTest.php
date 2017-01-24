@@ -15,8 +15,8 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $response = $this->getMockWithoutInvokingTheOriginalConstructor(GuzzleResponse::class);
-        $this->closureHolder = $this->getMockWithoutInvokingTheOriginalConstructor(ClosureHolder::class);
+        $response = $this->getMockBuilder(GuzzleResponse::class)->disableOriginalConstructor()->getMock();
+        $this->closureHolder = $this->getMockBuilder(ClosureHolder::class)->disableOriginalConstructor()->getMock();
         $this->closureHolder->method('get')->willReturn($response);
         $this->response = new Response($this->closureHolder);
     }

@@ -14,7 +14,7 @@ class ResponseWithAssertionsTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->response = $this->getMockWithoutInvokingTheOriginalConstructor(Response::class);
+        $this->response = $this->getMockBuilder(Response::class)->disableOriginalConstructor()->getMock();
         $this->responseWithAssertions = new ResponseWithAssertions($this->response);
     }
 

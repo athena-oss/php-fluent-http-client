@@ -27,7 +27,7 @@ class JsonStructureAssertionTest extends \PHPUnit_Framework_TestCase
             JSON_PRETTY_PRINT
         );
 
-        $this->responseHolder = $this->getMockWithoutInvokingTheOriginalConstructor(ResponseHolder::class);
+        $this->responseHolder = $this->getMockBuilder(ResponseHolder::class)->disableOriginalConstructor()->getMock();
         $this->responseHolder->method('getBody')->willReturn($bodyContents);
     }
 

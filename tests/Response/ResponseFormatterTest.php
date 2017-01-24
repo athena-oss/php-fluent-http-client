@@ -17,12 +17,12 @@ class ResponseFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->invalidJsonResponseHolder = $this->getMockWithoutInvokingTheOriginalConstructor(ResponseHolder::class);
+        $this->invalidJsonResponseHolder = $this->getMockBuilder(ResponseHolder::class)->disableOriginalConstructor()->getMock();
         $this->invalidJsonResponseHolder->method('getBody')->willReturn('} {{{');
 
         $this->responseWithInvalidJson = new ResponseFormatter($this->invalidJsonResponseHolder);
 
-        $this->validJsonResponseHolder = $this->getMockWithoutInvokingTheOriginalConstructor(ResponseHolder::class);
+        $this->validJsonResponseHolder = $this->getMockBuilder(ResponseHolder::class)->disableOriginalConstructor()->getMock();
         $this->validJsonResponseHolder->method('getBody')->willReturn('{"key": "value"}');
 
         $this->responseWithValidJson = new ResponseFormatter($this->validJsonResponseHolder);

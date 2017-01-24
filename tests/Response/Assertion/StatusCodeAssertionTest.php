@@ -13,7 +13,7 @@ class StatusCodeAssertionTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->responseHolder = $this->getMockWithoutInvokingTheOriginalConstructor(ResponseHolder::class);
+        $this->responseHolder = $this->getMockBuilder(ResponseHolder::class)->disableOriginalConstructor()->getMock();
     }
 
     public function testMatchingStatusCode()

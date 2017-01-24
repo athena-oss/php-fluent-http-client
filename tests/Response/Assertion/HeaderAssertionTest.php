@@ -15,7 +15,7 @@ class HeaderAssertionTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->responseHolder = $this->getMockWithoutInvokingTheOriginalConstructor(ResponseHolder::class);
+        $this->responseHolder = $this->getMockBuilder(ResponseHolder::class)->disableOriginalConstructor()->getMock();
         $this->headerAssertion = new HeaderAssertion('my-expected-header-name');
     }
 
