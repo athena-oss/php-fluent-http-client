@@ -1,5 +1,7 @@
 # PHP Fluent Http Client
 
+[![Build Status](https://travis-ci.org/athena-oss/php-fluent-http-client.svg?branch=master)](https://travis-ci.org/athena-oss/php-fluent-http-client)
+
 PHP Fluent Http Client is a library for handling http requests and responses with a fluent api.
 
 ## How to install?
