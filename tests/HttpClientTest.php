@@ -36,6 +36,14 @@ class HttpClientTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeEquals('http://www.olx.com', 'uri', $requestObj);
     }
 
+    public function testPatchMethodIsCalledShouldReturnFluentRequestWithHTTPPatchMethod()
+    {
+        $requestObj = $this->httpClient->patch('http://www.olx.com');
+
+        $this->assertAttributeEquals('PATCH', 'method', $requestObj);
+        $this->assertAttributeEquals('http://www.olx.com', 'uri', $requestObj);
+    }
+
     public function testDeleteMethodIsCalledShouldReturnFluentRequestWithHTTPDeleteMethod()
     {
         $requestObj = $this->httpClient->delete('http://www.olx.com');

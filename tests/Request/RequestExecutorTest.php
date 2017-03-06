@@ -29,6 +29,13 @@ class RequestExecutorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('put', $executor());
     }
 
+    public function testExecuteGivenHTTPMethodIsPATCH()
+    {
+        $executor = $this->makeRequestExecutorFor('PATCH');
+
+        $this->assertEquals('patch', $executor());
+    }
+
     public function testExecuteGivenHTTPMethodIsDELETE()
     {
         $executor = $this->makeRequestExecutorFor('DELETE');
@@ -55,12 +62,13 @@ class RequestExecutorTest extends \PHPUnit_Framework_TestCase
     {
         // set the methods manually, since with >Guzzle 6.0 the client uses __call method which complicates a bit the mocking
         $httpClient = $this->getMockBuilder(Client::class)
-            ->setMethods(['get','post','put','delete'])
+            ->setMethods(['get','post','put','patch','delete'])
             ->getMock();
 
         $httpClient->method('get')->willReturn('get');
         $httpClient->method('post')->willReturn('post');
         $httpClient->method('put')->willReturn('put');
+        $httpClient->method('patch')->willReturn('patch');
         $httpClient->method('delete')->willReturn('delete');
 
         $requestExecutor = $this->getMockBuilder(RequestExecutor::class)

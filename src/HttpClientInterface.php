@@ -27,5 +27,11 @@ interface HttpClientInterface
      * @param $uri
      * @return FluentRequestInterface
      */
+    public function patch($uri);
+
+    /**
+     * @param $uri
+     * @return FluentRequestInterface
+     */
     public function delete($uri);
 }
