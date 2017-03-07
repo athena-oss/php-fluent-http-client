@@ -51,6 +51,9 @@ class RequestExecutor
             case 'PUT':
                 $requestResponse = $this->getClient()->put($this->uri, $this->options);
                 break;
+            case 'PATCH':
+                $requestResponse = $this->getClient()->patch($this->uri, $this->options);
+                break;
             case 'DELETE':
                 $requestResponse = $this->getClient()->delete($this->uri, $this->options);
                 break;

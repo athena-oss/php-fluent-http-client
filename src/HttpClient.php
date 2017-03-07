@@ -53,6 +53,15 @@ class HttpClient implements HttpClientInterface
      * @param $uri
      * @return FluentRequestInterface
      */
+    public function patch($uri)
+    {
+        return new FluentRequest('PATCH', $uri, $this->client);
+    }
+
+    /**
+     * @param $uri
+     * @return FluentRequestInterface
+     */
     public function delete($uri)
     {
         return new FluentRequest('DELETE', $uri, $this->client);
