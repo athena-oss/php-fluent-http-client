@@ -34,4 +34,10 @@ interface HttpClientInterface
      * @return FluentRequestInterface
      */
     public function delete($uri);
+    
+    /**
+     * @param $uri
+     * @return FluentRequestInterface
+     */
+    public function head($uri);
 }

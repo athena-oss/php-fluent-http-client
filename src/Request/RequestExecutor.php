@@ -57,6 +57,9 @@ class RequestExecutor
             case 'DELETE':
                 $requestResponse = $this->getClient()->delete($this->uri, $this->options);
                 break;
+            case 'HEAD':
+                $requestResponse = $this->getClient()->head($this->uri, $this->options);
+                break;
             default:
                 throw new UnsupportedOperationException(sprintf('HTTP METHOD [%s] is not supported.', $this->method));
         }
