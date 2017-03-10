@@ -1,3 +1,7 @@
+## 0.8.2 (January 11, 2017)
+
+- HEAD and PATCH http methods support
+
 ## 0.7.2 (January 11, 2017)
 
 - Upgraded to Gradle 6.0
