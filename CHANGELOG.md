@@ -1,4 +1,4 @@
-## 0.8.2 (January 11, 2017)
+## 0.8.2 (March 10, 2017)
 
 - HEAD and PATCH http methods support
 
