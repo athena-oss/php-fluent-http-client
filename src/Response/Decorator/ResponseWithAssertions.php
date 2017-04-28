@@ -160,4 +160,12 @@ class ResponseWithAssertions implements ResponseInterface
         }
         return $this->response->retrieve();
     }
+    
+     /**
+     * @return Response
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
 }
