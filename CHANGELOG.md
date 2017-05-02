@@ -1,3 +1,7 @@
+## 0.9.0 (May 2, 2017)
+
+- Expose response entity 
+
 ## 0.8.2 (March 10, 2017)
 
 - HEAD and PATCH http methods support
